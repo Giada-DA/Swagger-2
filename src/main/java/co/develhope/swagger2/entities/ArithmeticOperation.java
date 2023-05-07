@@ -4,10 +4,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 public class ArithmeticOperation {
 
     @ApiModelProperty(value = "Operazione aritmetica", example = "Addizione")
@@ -22,4 +19,45 @@ public class ArithmeticOperation {
     @ApiModelProperty(value = "Lista delle proprietà dell'operazione", example = "['Commutativa', 'associativa', 'dissociativa'}")
     private String[] proprieta;
 
+    public ArithmeticOperation() {
+    }
+
+    public ArithmeticOperation(String nome, int numeriMinimiPerOperazione, String descrizione, String[] proprieta) {
+        this.nome = nome;
+        this.numeriMinimiPerOperazione = numeriMinimiPerOperazione;
+        this.descrizione = descrizione;
+        this.proprieta = proprieta;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getNumeriMinimiPerOperazione() {
+        return numeriMinimiPerOperazione;
+    }
+
+    public void setNumeriMinimiPerOperazione(int numeriMinimiPerOperazione) {
+        this.numeriMinimiPerOperazione = numeriMinimiPerOperazione;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public String[] getProprieta() {
+        return proprieta;
+    }
+
+    public void setProprieta(String[] proprieta) {
+        this.proprieta = proprieta;
+    }
 }

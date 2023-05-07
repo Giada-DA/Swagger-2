@@ -15,11 +15,14 @@ public class MathController {
         return "Welcome";
     }
 
-    ArithmeticOperation divisione = new ArithmeticOperation("divisione", 2, "dividendo diviso divisore = quoziente", new String[] {"['invariantiva', 'distributiva'}"});
+
 
     @GetMapping("/division-info")
-    public String infoDivisione(){
-        return divisione.getDescrizione();
+    public ArithmeticOperation infoDivisione(){
+        String [] proprieta = new String [2];
+        proprieta[0]="invariantiva";
+        proprieta[1]="distributiva";
+        return new ArithmeticOperation("divisione", 2, "divide il primo numero per il secondo", proprieta);
     }
 
     @GetMapping("/multiplication")
